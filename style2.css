@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.offer {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: calc(30% - 20px); /* Tamaño de las ofertas con un margen entre ellas */
+    margin-bottom: 20px;
+    box-sizing: border-box; /* Incluir padding y border en el tamaño del elemento */
+    cursor: pointer;
+    transition: border-color 0.3s; /* Efecto de transición para el borde al pasar el ratón */
+}
+
+.offer:hover {
+    border-color: #007bff; /* Cambiar color del borde al pasar el ratón */
+}
+
+.offer h2 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.offer p {
+    margin-bottom: 10px;
+}
+
+.cart {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.cart h2 {
+    font-size: 24px;
+}
+
+.cart p {
+    font-size: 18px;
+}
+
+.cart #cart-total {
+    font-weight: bold;
+    color: #007bff; /* Color azul para el total del carrito */
+}
