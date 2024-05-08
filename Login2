@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <title>Bienvenido a la Terraza</title>
+</head>
+
+<body>
+    <div class="container-form sign-up">
+        <div class="Botilleria">
+            <div class="message">
+                <h2>Botilleria la Terraza</h2>
+                <img src="imagenes/terraza__1_-removebg-preview.png" alt="logo_terraza">
+                <p>Si no tienes una cuenta pulsa el botón para registrarse</p>
+                <button class="sign-up-btn">Registrate</button>
+            </div>
+        </div>
+        <form class="formulario" action="index.html" onsubmit="return validarFormulario()">
+            <h2 class="create-account">Bienvenido a la Terraza</h2>
+            <div class="iconos">
+                <div class="border-icon">
+                    <i class='bx bxl-instagram'></i>
+                </div>
+                <div class="border-icon">
+                    <i class='bx bxl-twitter'></i>
+                </div>
+                <div class="border-icon">
+                    <i class='bx bxl-facebook-circle' ></i>
+                </div>
+            </div>
+            <h2 class="cuenta-gratis">Inicia Sesión</h2>
+            <input type="text" placeholder="Nombre" required>
+            <input type="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+            <input type="password" placeholder="Contraseña" required>
+            <button type="submit" class="login-link">Login</button>
+            <img src="imagenes/terraza__1_-removebg-preview.png" alt="logo_terraza">
+        </form>
+        
+        <script>
+            function validarFormulario() {
+                var nombre = document.querySelector('input[type="text"]').value;
+                var email = document.querySelector('input[type="email"]').value;
+                var contraseña = document.querySelector('input[type="password"]').value;
+        
+                // Validar que los campos no estén vacíos
+                if (nombre === "" || email === "" || contraseña === "") {
+                    alert("Por favor, completa todos los campos.");
+                    return false; // Evita que el formulario se envíe si hay campos vacíos
+                }
+        
+                // Validar el formato del correo electrónico utilizando el atributo pattern del input type="email"
+                // No es necesario validar la contraseña aquí ya que solo se requiere que no esté vacía
+        
+                // Validar la contraseña
+                // La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, símbolo y dígitos
+                var contraseñaRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+}{":;'?/>.<,])(?=.{8,})/;
+                if (!contraseñaRegex.test(contraseña)) {
+                    alert("La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un dígito y un símbolo.");
+                    return false; // Evita que el formulario se envíe si la contraseña no cumple con los requisitos
+                }
+        
+                return true; // Envía el formulario si todos los campos están llenos y el formato del correo electrónico es válido
+            }
+        </script> 
+    </div>
+</body>
+
+</html>
