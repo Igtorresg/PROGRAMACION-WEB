@@ -15,7 +15,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     color: #fff;
-    position: relative; /* Añade posición relativa para posicionar los elementos internos */
+    position: relative; 
 }
 
 .message {
@@ -23,7 +23,7 @@ body {
 }
 
 .message h1 {
-    font-size: 2rem; /* Ajusta el tamaño de la fuente */
+    font-size: 2rem; 
     padding: 1rem 0;
     margin-bottom: 2rem;
 }
@@ -47,15 +47,15 @@ body {
 }
 
 .formulario {
-    width: 500px; /* Ajusta el ancho del formulario según sea necesario */
+    width: 500px;
     padding: 1rem;
     position: absolute;
-    top: 50%; /* Centra verticalmente */
-    left: 50%; /* Centra horizontalmente */
-    transform: translate(-50%, -50%); /* Centra completamente */
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
     background-color: rgba(0, 0, 0, 0.602);
     text-align: center;
-    z-index: 2; /* Asegura que el formulario esté por encima del logo */
+    z-index: 2; 
 }
 
 .iconos {
@@ -104,11 +104,11 @@ body {
     width: 300px;
     display: flex;
     margin: auto;
-    position: absolute; /* Ajusta la posición del logo */
-    bottom: -50px; /* Ajusta la posición vertical del logo */
-    left: 50%; /* Centra horizontalmente */
+    position: absolute; 
+    bottom: -50px; 
+    left: 50%; 
     transform: translateX(-50%);
-    z-index: 1; /* Asegura que el logo esté detrás del formulario */
+    z-index: 1; 
 }
 
 .signup-btn {

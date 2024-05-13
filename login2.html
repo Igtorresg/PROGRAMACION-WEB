@@ -3,11 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <title>Bienvenido a la Terraza</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -20,7 +19,7 @@
                 <button class="sign-up-btn">Registrate</button>
             </div>
         </div>
-        <form class="formulario" action="index.html">
+        <form class="formulario" action="index.html" onsubmit="return validarFormulario()">
             <h2 class="create-account">Bienvenido a la Terraza</h2>
             <div class="iconos">
                 <div class="border-icon">
@@ -34,20 +33,33 @@
                 </div>
             </div>
             <h2 class="cuenta-gratis">Inicia Sesión</h2>
-            <input type="email" id="emailLogin" placeholder="Email" required>
-            <input type="password" id="contraseñaLogin" placeholder="Contraseña" required>
-            <button type="submit" class="login-link" onclick="return iniciarSesion()">Login</button>
+            <input type="text" placeholder="Nombre" required>
+            <input type="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+            <input type="password" placeholder="Contraseña" required>
+            <button type="submit" class="login-link">Login</button>
             <img src="imagenes/terraza__1_-removebg-preview.png" alt="logo_terraza">
         </form>
+        
+        <script>
+            function validarFormulario() {
+                var nombre = document.querySelector('input[type="text"]').value;
+                var email = document.querySelector('input[type="email"]').value;
+                var contraseña = document.querySelector('input[type="password"]').value;
+        
+                if (nombre === "" || email === "" || contraseña === "") {
+                    alert("Por favor, completa todos los campos.");
+                    return false;
+                }
+                var contraseñaRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+}{":;'?/>.<,])(?=.{8,})/;
+                if (!contraseñaRegex.test(contraseña)) {
+                    alert("La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un dígito y un símbolo.");
+                    return false;
+                }
+        
+                return true;
+            }
+        </script> 
     </div>
-
-    <script>
-        $(document).ready(function(){
-            $(".sign-up-btn").click(function(){
-                window.location.href = "registro.html";
-            });
-        });
-    </script> 
 </body>
 
 </html>

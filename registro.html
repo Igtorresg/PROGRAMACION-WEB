@@ -7,10 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <title>Regístrate en la Terraza</title>
+    <script src="Java2.js"></script>
 </head>
 
 <body>
-    <form class="formulario" action="index.html" onsubmit="return validarFormulario()">
+    <form class="formulario" onsubmit="return registrarCuenta()">
         <h1>Regístrate en la Terraza</h1>
         <div class="iconos">
             <div class="border-icon">
@@ -23,15 +24,17 @@
                 <i class='bx bxl-facebook-circle' ></i>
             </div>
         </div>
-        <input type="text" placeholder="Nombre" required>
-        <input type="text" placeholder="Apellido" required>
-        <input type="number" placeholder="Edad" required>
-        <input type="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
-        <input type="text" placeholder="País" required>
-        <input type="text" placeholder="Código Postal" required>
-        <input type="password" placeholder="Contraseña" required>
-        <input type="password" placeholder="Repetir Contraseña" required>
-        <button type="submit" class="signup-btn">Registrarse</button>
+        <div class="registro">
+            <input type="text" id="nombre" placeholder="Nombre" required>
+            <input type="text" id="apellido" placeholder="Apellido" required>
+            <input type="date" id="fechaNacimiento" placeholder="Fecha de Nacimiento" required>
+            <input type="email" id="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+            <input type="text" id="pais" placeholder="País" required>
+            <input type="text" id="codigoPostal" placeholder="Código Postal" required>
+            <input type="password" id="contraseña" placeholder="Contraseña" required>
+            <input type="password" id="repetirContraseña" placeholder="Repetir Contraseña" required>
+            <button type="submit" class="signup-btn">Registrarse</button>
+        </div>
     </form>
 
     <div class="Botilleria">
@@ -39,44 +42,6 @@
             <img src="imagenes/terraza__1_-removebg-preview.png" alt="logo_terraza">
         </div>
     </div>
-
-    <script>
-        function validarFormulario() {
-            var nombre = document.querySelector('input[type="text"][placeholder="Nombre"]').value;
-            var apellido = document.querySelector('input[type="text"][placeholder="Apellido"]').value;
-            var edad = document.querySelector('input[type="number"]').value;
-            var email = document.querySelector('input[type="email"]').value;
-            var pais = document.querySelector('input[type="text"][placeholder="País"]').value;
-            var codigoPostal = document.querySelector('input[type="text"][placeholder="Código Postal"]').value;
-            var contraseña = document.querySelector('input[type="password"]').value;
-            var repetirContraseña = document.querySelector('input[type="password"][placeholder="Repetir Contraseña"]').value;
-
-            // Validar que los campos no estén vacíos
-            if (nombre === "" || apellido === "" || edad === "" || email === "" || pais === "" || codigoPostal === "" || contraseña === "" || repetirContraseña === "") {
-                alert("Por favor, completa todos los campos.");
-                return false; // Evita que el formulario se envíe si hay campos vacíos
-            }
-
-            // Validar el formato del correo electrónico
-            // No es necesario validar la contraseña aquí ya que solo se requiere que no esté vacía
-
-            // Validar la contraseña
-            // La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un símbolo y un dígito
-            var contraseñaRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+}{":;'?/>.<,])(?=.{8,})/;
-            if (!contraseñaRegex.test(contraseña)) {
-                alert("La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un dígito y un símbolo.");
-                return false; // Evita que el formulario se envíe si la contraseña no cumple con los requisitos
-            }
-
-            // Validar que las contraseñas coincidan
-            if (contraseña !== repetirContraseña) {
-                alert("Las contraseñas no coinciden.");
-                return false; // Evita que el formulario se envíe si las contraseñas no coinciden
-            }
-
-            return true; // Envía el formulario si todos los campos están llenos y el formato del correo electrónico es válido
-        }
-    </script>
 </body>
 
 </html>
